@@ -1,0 +1,37 @@
+Library required
+Express
+Mongoose
+NodeJS
+Nodemon
+dotenv
+
+//check package.json
+
+1. change the type to module - to use the eslint
+2. Add start script to use the nodemon for starting the server.js
+3. check if the server.js and the name is the same i.e server in first line of package.json
+
+//add dotenv to server and its config function. now add a file .env with a variable name which is equal to the
+connection string of the mongoDB server, with the name and password.
+
+//configure server.js to connect the mongoDB and start the server before making the schema.
+
+## ERRORS and SOLUTION if in the case of creating the user
+
+## Error:
+
+MongoWriteConcernError: No write concern mode named 'majority;' found in replica set configuration
+
+## Solution:
+
+Make sure that in the .env file there is no ";" at the url end as from the following example:
+
+## #Error:
+
+mongodb+srv://username:password@cluster0.hcyv7.mongodb.net/?retryWrites=true&w=majority;
+
+## #Solved:
+
+mongodb+srv://username:password@cluster0.hcyv7.mongodb.net/?retryWrites=true&w=majority
+
+## In order to connect server to client we are using cors and adding it to the middle ware, we are sending credentials so we also define credentials to true.
